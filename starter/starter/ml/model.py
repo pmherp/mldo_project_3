@@ -1,4 +1,7 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.ensemble import RandomForestClassifier
+
+import pickle
 
 
 # Optional: implement hyperparameter tuning.
@@ -18,7 +21,9 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
 
-    pass
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model.fit(X_train, y_train)
+    return model
 
 
 def compute_model_metrics(y, preds):
@@ -48,7 +53,7 @@ def inference(model, X):
 
     Inputs
     ------
-    model : ???
+    model : RandomForestClassifier
         Trained machine learning model.
     X : np.array
         Data used for prediction.
@@ -57,4 +62,46 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    y_pred = model.predict(X)
+    return y_pred
+
+def save_model(model, encoder):
+    """ Saves the model and encoder
+
+    Inputs
+    ------
+    model : RandomForestClassifier
+        Trained machine learning model.
+    encoder : OneHotEncoder
+
+    Returns
+    -------
+    None
+    """
+    with open("../model/model.pkl", "wb") as model_file:
+        pickle.dump(model, model_file)
+
+    with open("../model/encoder.pkl", "wb") as encoder_file:
+        pickle.dump(encoder, encoder_file)
+
+def load_model():
+    """ Loads the model and encoder
+
+    Inputs
+    ------
+    model : RandomForestClassifier
+        Trained machine learning model.
+    encoder : OneHotEncoder
+
+    Returns
+    -------
+    model : RandomForestClassifier
+    encoder : OneHotEncoder
+    """
+    with open("../model/model.pkl", "rb") as model_file:
+        model = pickle.load(model_file)
+    
+    with open("../model/encoder.pkl", "rb") as encoder_file:
+        encoder = pickle.load(encoder_file)
+    
+    return model, encoder
