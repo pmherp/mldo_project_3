@@ -27,11 +27,9 @@ The overall model performance was evaluated using Fbeta score, and Precision-Rec
 
 Script used to compute performance : model_performance.py
 
-Precision Score : 0.9524765729585006
-
-Recall Score : 0.9270358306188925
-
-FBeta Score : 0.9395840211290856
+- Precision Score : 0.9524765729585006
+- Recall Score : 0.9270358306188925
+- FBeta Score : 0.9395840211290856
 
 ## Ethical Considerations
 
