@@ -13,29 +13,32 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
 
 app = FastAPI()
 
+
 @app.get("/")
 async def root():
     return {"Message": "Hello there! --> General Kenobi!"}
+
 
 @app.post("/inference")
 async def inference(input_data: Features):
     input_data = input_data.dict()
 
-    columns = ['age',
-               'workclass',
-               'fnlgt',
-               'education',
-               'education_num',
-               'marital_status',
-               'occupation',
-               'relationship',
-               'race',
-               'sex',
-               'capital_gain',
-               'capital_loss',
-               'hours_per_week',
-               'native_country'
-               ]
+    columns = [
+        'age',
+        'workclass',
+        'fnlgt',
+        'education',
+        'education_num',
+        'marital_status',
+        'occupation',
+        'relationship',
+        'race',
+        'sex',
+        'capital_gain',
+        'capital_loss',
+        'hours_per_week',
+        'native_country'
+    ]
 
     cat_features = [
         "workclass",
@@ -50,8 +53,9 @@ async def inference(input_data: Features):
 
     input_df = pd.DataFrame(
         data=input_data.values(),
-        index=input_data.keys()).T
-        
+        index=input_data.keys()
+    ).T
+
     input_df = input_df[columns]
 
     data = pd.read_csv('data/census.csv')

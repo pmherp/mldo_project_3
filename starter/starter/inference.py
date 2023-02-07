@@ -5,7 +5,7 @@ writes predictions into a file and returns them as output
 
 from starter.ml.data import process_data
 from starter.ml.model import inference, load_model
-import os
+import pandas as pd
 
 
 def inference_model(data, cat_features):
@@ -31,8 +31,5 @@ def inference_model(data, cat_features):
     print('X shape', X.shape)
     pred = inference(trained_model, X)
     prediction = lb.inverse_transform(pred)[0]
-
-    #with open('../model/prediction_output.txt', 'w') as pred_out:
-        #pred_out.write(prediction)
 
     return prediction
