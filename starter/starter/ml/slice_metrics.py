@@ -43,8 +43,8 @@ def accuracy():
 
             prc, rcl, fb = compute_model_metrics(y_test, y_preds)
 
-            line = "[%s->%s] Precision: %s " \
-                   "Recall: %s FBeta: %s" % (cat, cls, prc, rcl, fb)
+            line = "[%s on %s] Precision: %s | " \
+                   "Recall: %s | FBeta: %s" % (cat, cls, prc, rcl, fb)
 
             slice_values.append(line)
 
