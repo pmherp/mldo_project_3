@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from ml.data import process_data
 from ml.model import compute_model_metrics, load_model
 
+
 def performance_on_metrics():
     """ Check performance on categorical features """
 
@@ -14,7 +15,8 @@ def performance_on_metrics():
 
     _, test = train_test_split(df, test_size=0.2)
 
-    trained_model, encoder, lb = load_model("../model/model.pkl", "../model/encoder.pkl", "../model/lb.pkl")
+    trained_model, encoder, lb = load_model(
+        "../model/model.pkl", "../model/encoder.pkl", "../model/lb.pkl")
 
     features = [
         "workclass",
@@ -38,9 +40,10 @@ def performance_on_metrics():
 
     prc, rcl, fb = compute_model_metrics(y_test, y_preds)
 
-    print('Precision Score : ',prc)
-    print('Recall Score : ',rcl)
+    print('Precision Score : ', prc)
+    print('Recall Score : ', rcl)
     print('FBeta Score : ', fb)
+
 
 if __name__ == '__main__':
     performance_on_metrics()

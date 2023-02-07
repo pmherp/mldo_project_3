@@ -3,15 +3,18 @@ import pandas as pd
 import numpy as np
 import pickle
 from sklearn.model_selection import train_test_split
-#from ml.model import load_model
+# from ml.model import load_model
+
 
 @pytest.fixture
 def data():
     data = pd.read_csv('../data/census.csv')
     y = data['salary']
     X = data.drop(['salary'], axis=1)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42)
     return X_train, X_test, y_train, y_test
+
 
 def test_train_model(data):
     X_train, _, y_train, _ = data
@@ -19,7 +22,9 @@ def test_train_model(data):
         clf = pickle.load(model_file)
 
     assert clf.classes_ is not None, 'Classes not found'
-    assert clf.n_classes_ == len(np.unique(y_train)), 'Incorrect number of classes'
+    assert clf.n_classes_ == len(
+        np.unique(y_train)), 'Incorrect number of classes'
+
 
 def test_model_parameters(data):
     X_train, _, y_train, _ = data
@@ -27,6 +32,7 @@ def test_model_parameters(data):
         clf = pickle.load(model_file)
 
     assert clf.n_estimators == 100, 'Incorrect number of trees'
+
 
 def test_data_types():
     data = pd.read_csv('../data/census.csv')

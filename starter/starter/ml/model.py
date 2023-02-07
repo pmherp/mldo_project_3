@@ -65,6 +65,7 @@ def inference(model, X):
     y_pred = model.predict(X)
     return y_pred
 
+
 def save_model(model, encoder, lb):
     """ Saves the model and encoder
 
@@ -83,9 +84,10 @@ def save_model(model, encoder, lb):
 
     with open("../model/encoder.pkl", "wb") as encoder_file:
         pickle.dump(encoder, encoder_file)
-    
+
     with open("../model/lb.pkl", "wb") as lb_file:
         pickle.dump(lb, lb_file)
+
 
 def load_model(model_pth, encoder_pth, lb_pth):
     """ Loads the model and encoder
@@ -103,11 +105,11 @@ def load_model(model_pth, encoder_pth, lb_pth):
     """
     with open(model_pth, "rb") as model_file:
         model = pickle.load(model_file)
-    
+
     with open(encoder_pth, "rb") as encoder_file:
         encoder = pickle.load(encoder_file)
-    
+
     with open(lb_pth, "rb") as lb_file:
         lb = pickle.load(lb_file)
-    
+
     return model, encoder, lb

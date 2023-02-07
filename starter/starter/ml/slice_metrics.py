@@ -4,6 +4,7 @@ import pickle
 from data import process_data
 from model import compute_model_metrics, load_model
 
+
 def accuracy():
     """
     Execute accuracy
@@ -11,11 +12,12 @@ def accuracy():
     df = pd.read_csv("../../data/census.csv")
     _, test = train_test_split(df, test_size=0.20)
 
-    #trained_model = load("model/model.joblib")
-    #encoder = load("model/encoder.joblib")
-    #lb = load("model/lb.joblib")
+    # trained_model = load("model/model.joblib")
+    # encoder = load("model/encoder.joblib")
+    # lb = load("model/lb.joblib")
 
-    trained_model, encoder, lb = load_model("../../model/model.pkl", "../../model/encoder.pkl", "../../model/lb.pkl")
+    trained_model, encoder, lb = load_model(
+        "../../model/model.pkl", "../../model/encoder.pkl", "../../model/lb.pkl")
 
     features = [
         "workclass",
@@ -51,6 +53,7 @@ def accuracy():
     with open('../../model/slice_output.txt', 'w') as out:
         for slice_value in slice_values:
             out.write(slice_value + '\n')
+
 
 if __name__ == '__main__':
     accuracy()
