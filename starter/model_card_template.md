@@ -6,7 +6,6 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 
 It is a RandomForestClassifier from the sklearn.ensable. It uses the default configuration - no hyperparameter tuning:
 
-- n_splits=10 
 - n_estimators=100
 
 ## Intended Use

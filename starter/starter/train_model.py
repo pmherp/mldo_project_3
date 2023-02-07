@@ -17,12 +17,12 @@ train, test = train_test_split(data, test_size=0.2)
 cat_features = [
     "workclass",
     "education",
-    "marital-status",
+    "marital_status",
     "occupation",
     "relationship",
     "race",
     "sex",
-    "native-country",
+    "native_country",
 ]
 
 # Proces the test data with the process_data function.

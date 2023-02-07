@@ -1,3 +1,5 @@
+"""This script computes performance on model slices with a given feature held fixed."""
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import pickle
