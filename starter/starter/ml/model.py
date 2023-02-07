@@ -65,7 +65,7 @@ def inference(model, X):
     y_pred = model.predict(X)
     return y_pred
 
-def save_model(model, encoder):
+def save_model(model, encoder, lb):
     """ Saves the model and encoder
 
     Inputs
@@ -83,8 +83,11 @@ def save_model(model, encoder):
 
     with open("../model/encoder.pkl", "wb") as encoder_file:
         pickle.dump(encoder, encoder_file)
+    
+    with open("../model/lb.pkl", "wb") as lb_file:
+        pickle.dump(lb, lb_file)
 
-def load_model():
+def load_model(model_pth, encoder_pth, lb_pth):
     """ Loads the model and encoder
 
     Inputs
@@ -98,10 +101,13 @@ def load_model():
     model : RandomForestClassifier
     encoder : OneHotEncoder
     """
-    with open("../model/model.pkl", "rb") as model_file:
+    with open(model_pth, "rb") as model_file:
         model = pickle.load(model_file)
     
-    with open("../model/encoder.pkl", "rb") as encoder_file:
+    with open(encoder_pth, "rb") as encoder_file:
         encoder = pickle.load(encoder_file)
     
-    return model, encoder
+    with open(lb_pth, "rb") as lb_file:
+        lb = pickle.load(lb_file)
+    
+    return model, encoder, lb

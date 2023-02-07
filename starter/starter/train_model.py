@@ -33,4 +33,4 @@ X_train, y_train, encoder, lb = process_data(
 model = train_model(X_train, y_train)
 
 # Save model
-save_model(model, encoder)
+save_model(model, encoder, lb)
