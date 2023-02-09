@@ -28,8 +28,9 @@ def inference_model(data, cat_features):
 
     X, _, _, _ = process_data(
         data, categorical_features=cat_features, encoder=encoder, lb=lb, training=False)
-    print('X shape', X.shape)
+
     pred = inference(trained_model, X)
+    
     prediction = lb.inverse_transform(pred)[0]
 
     return prediction
