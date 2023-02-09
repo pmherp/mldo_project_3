@@ -16,14 +16,17 @@ def client():
 
     return data
 
+
 def test_get(client):
     r = client.get("/")
     assert r.status_code == 200
     assert r.json() == {"Message": "Hello there! --> General Kenobi!"}
 
+
 def test_get_wrong_url(client):
     r = client.get("/wrong_url")
     assert r.status_code != 200
+
 
 def test_post_above_50(client):
     r = client.post("/inference", json={
@@ -44,6 +47,7 @@ def test_post_above_50(client):
     })
     assert r.status_code == 200, 'Status Code not 200.'
     assert r.json() == {"prediction": "<=50K"}, f'Prediction wrong: {r.json()}'
+
 
 def test_post_below_50(client):
     r = client.post("/inference", json={
