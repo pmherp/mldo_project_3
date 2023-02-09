@@ -17,11 +17,11 @@ on:
       - CODEOWNERS
       - LICENSE.txt
       - README.md
-      - remote/
-      - starter/data/
-      - starter/model/
-      - starter/screenshots/
-      - starter/starter/
+      - remote/**
+      - starter/data/**
+      - starter/model/**
+      - starter/screenshots/**
+      - starter/starter/**
       
   pull_request:
     branches: [ "main" ]
