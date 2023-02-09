@@ -23,7 +23,9 @@ def inference_model(data, cat_features):
     """
 
     trained_model, encoder, lb = load_model(
-        "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/model.pkl", "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/encoder.pkl", "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/lb.pkl")
+        "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/model.pkl",
+        "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/encoder.pkl",
+        "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/lb.pkl")
 
     X, _, _, _ = process_data(
         data, categorical_features=cat_features, encoder=encoder, lb=lb, training=False)
