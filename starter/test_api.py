@@ -10,7 +10,7 @@ from main import app
 @pytest.fixture
 def client():
     """
-    Get data.
+    Get data
     """
     data = TestClient(app)
 
