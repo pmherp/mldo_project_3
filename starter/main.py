@@ -7,9 +7,15 @@ from features import Features
 import pandas as pd
 from starter.inference import inference_model
 
+#if "DYNO" in os.environ and os.path.isdir(".dvc"):
+    #os.system("dvc config core.no_scm true")
+    #os.system("dvc config core.hardlink_lock true")
+
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("dvc config core.no_scm true")
-    os.system("dvc config core.hardlink_lock true")
+    if os.system("dvc pull") != 0:
+        exit("dvc pull failed")
+    os.system("rm -r .dvc .apt/usr/lib/dvc")
 
 app = FastAPI()
 
@@ -66,4 +72,4 @@ async def inference(input_data: Features):
     return {"prediction": prediction}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="https://deploy-machine-learning-model-on-render.onrender.com", port=8000)
