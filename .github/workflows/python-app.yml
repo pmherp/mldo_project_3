@@ -18,11 +18,12 @@ on:
       - LICENSE.txt
       - README.md
       - remote/**
-      - starter/starter/ml/data**
+      - starter/starter/ml/data.py
       - starter/model/**
       - starter/screenshots/**
       - starter/starter/**
-      - starter/starter/test_model
+      - starter/starter/test_model.py
+      
       
   pull_request:
     branches: [ "main" ]
