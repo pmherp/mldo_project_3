@@ -6,6 +6,9 @@ name: Python application
 on:
   push:
     branches: [ "main" ]
+    paths: 
+      - starter/main.py
+      - starter/test_api.py
   pull_request:
     branches: [ "main" ]
 
