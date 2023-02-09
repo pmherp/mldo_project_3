@@ -6,9 +6,23 @@ name: Python application
 on:
   push:
     branches: [ "main" ]
-    paths: 
-      - starter/main.py
-      - starter/test_api.py
+    paths-ignore:
+      - starter/sanitycheck.py
+      - starter/__init__.py
+      - starter/Procfile
+      - starter/README.md
+      - starter/dvc_on_heroku_instructions.md
+      - starter/model_card_template.md
+      - starter/requirements.txt
+      - CODEOWNERS
+      - LICENSE.txt
+      - README.md
+      - remote/
+      - starter/data/
+      - starter/model/
+      - starter/screenshots/
+      - starter/starter/
+      
   pull_request:
     branches: [ "main" ]
 
