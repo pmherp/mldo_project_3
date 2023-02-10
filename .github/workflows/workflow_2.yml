@@ -43,6 +43,7 @@ jobs:
       run: |
         conda create -n mldo_proj_3 "python=3.8" pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
         conda install -n mldo_proj_3 scikit-learn
+        conda init mldo_proj_3
         conda activate mldo_proj_3
         python -m pip install --upgrade pip
         pip install flake8 pytest pickle5
