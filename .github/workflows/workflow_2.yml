@@ -18,12 +18,10 @@ on:
       - LICENSE.txt
       - README.md
       - remote/**
-      - starter/starter/ml/data.py
+      - starter/starter/ml/**
       - starter/model/**
       - starter/screenshots/**
-      - starter/starter/**
-      - starter/starter/test_model.py
-      
+      - starter/starter/train_model.py
   pull_request:
     branches: [ "main" ]
 
@@ -43,9 +41,13 @@ jobs:
         python-version: "3.8"
     - name: Install dependencies
       run: |
+        conda create -n mldo_proj_3 "python=3.8" pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
+        conda install -n mldo_proj_3 scikit-learn
+        conda init mldo_proj_3
+        conda activate mldo_proj_3
         python -m pip install --upgrade pip
-        pip install flake8 pytest pandas fastapi sklearn httpx uvicorn
-        if [ -f requirements.txt ]; then pip install -r starter/requirements.txt; fi
+        pip install flake8 pytest pickle5
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -54,4 +56,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest starter/test_api.py
+        pytest
