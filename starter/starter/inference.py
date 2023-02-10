@@ -28,24 +28,31 @@ def inference_model(data, cat_features):
             "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/encoder.pkl",
             "/Users/philipherp/Documents/Udacity/Machine_Learning_DevOps/mldo_project_3/starter/model/lb.pkl")
     except:
-        try:
-            with open("starter/model/model.pkl", "rb") as model_file:
-                trained_model = pickle.load(model_file)
-        
-            with open("starter/model/encoder.pkl", "rb") as model_file:
-                encoder = pickle.load(model_file)
+        pass
 
-            with open("starter/model/lb.pkl", "rb") as model_file:
-                lb = pickle.load(model_file)
-        except:
-            with open("model/model.pkl", "rb") as model_file:
-                trained_model = pickle.load(model_file)
+    try:
+        with open("starter/model/model.pkl", "rb") as model_file:
+            trained_model = pickle.load(model_file)
         
-            with open("model/encoder.pkl", "rb") as model_file:
-                encoder = pickle.load(model_file)
+        with open("starter/model/encoder.pkl", "rb") as model_file:
+            encoder = pickle.load(model_file)
 
-            with open("model/lb.pkl", "rb") as model_file:
-                lb = pickle.load(model_file)
+        with open("starter/model/lb.pkl", "rb") as model_file:
+            lb = pickle.load(model_file)
+    except:
+        pass
+
+    try:
+        with open("model/model.pkl", "rb") as model_file:
+            trained_model = pickle.load(model_file)
+        
+        with open("model/encoder.pkl", "rb") as model_file:
+            encoder = pickle.load(model_file)
+
+        with open("model/lb.pkl", "rb") as model_file:
+            lb = pickle.load(model_file)
+    except:
+        pass
 
     X, _, _, _ = process_data(
         data, categorical_features=cat_features, encoder=encoder, lb=lb, training=False)
