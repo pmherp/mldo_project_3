@@ -53,7 +53,6 @@ jobs:
     - name: Test with pytest
       run: |
         cd /
-        cd starter/starter/
-        pytest test_model.py
+        pytest starter/starter/test_model.py
         cd ..
         pytest test_api.py
