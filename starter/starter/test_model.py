@@ -11,7 +11,7 @@ def data():
     try:
         data = pd.read_csv('../data/census.csv')
     except:
-        data = pd.read_csv('../../starter/data/census.csv')
+        data = pd.read_csv('starter/data/census.csv')
 
     y = data['salary']
 
@@ -53,7 +53,7 @@ def test_data_types():
     try:
         data = pd.read_csv('../data/census.csv')
     except:
-        data = pd.read_csv('../../starter/data/census.csv')
+        data = pd.read_csv('starter/data/census.csv')
 
     expected_types = {
         "age": int,
