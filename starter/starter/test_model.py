@@ -29,7 +29,7 @@ def test_train_model(data):
         with open("../model/model.pkl", "rb") as model_file:
             clf = pickle.load(model_file)
     except:
-        with open("../../starter/model/model.pkl", "rb") as model_file:
+        with open("starter/model/model.pkl", "rb") as model_file:
             clf = pickle.load(model_file)
 
     assert clf.classes_ is not None, 'Classes not found'
@@ -43,7 +43,7 @@ def test_model_parameters(data):
         with open("../model/model.pkl", "rb") as model_file:
             clf = pickle.load(model_file)
     except:
-        with open("../../starter/model/model.pkl", "rb") as model_file:
+        with open("starter/model/model.pkl", "rb") as model_file:
             clf = pickle.load(model_file)
 
     assert clf.n_estimators == 100, 'Incorrect number of trees'
