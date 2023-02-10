@@ -2,6 +2,7 @@
 This script tests the API.
 """
 
+import pandas as pd
 import pytest
 from fastapi.testclient import TestClient
 from main import app
@@ -12,8 +13,14 @@ def client():
     """
     Get data
     """
-    data = TestClient(app)
+    client = TestClient(app)
 
+    return client
+
+
+@pytest.fixture
+def test_data():
+    data = pd.read_csv('starter/data/census.csv')
     return data
 
 

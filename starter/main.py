@@ -70,4 +70,4 @@ async def inference(input_data: Features):
     return {"prediction": prediction}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="https://deploy-machine-learning-model-on-render.onrender.com", port=8000)
