@@ -58,10 +58,10 @@ async def inference(input_data: Features):
 
     input_df = input_df[columns]
 
-    data = pd.read_csv('data/census.csv')
-    data = data.drop('salary', axis=1)
+    #data = pd.read_csv('data/census.csv')
+    #data = data.drop('salary', axis=1)
 
-    prediction = inference_model(data, cat_features)
+    prediction = inference_model(input_df, cat_features)
 
     return {"prediction": prediction}
 
