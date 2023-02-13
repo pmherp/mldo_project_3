@@ -14,7 +14,6 @@ This project runs on python version 3.8. Make sure you have the right Python ver
 Install the dependencies and libraries with the requirements.txt provided in this repository:
 
 pip install -r requirements.txt
-This project uses the following libraries:
 
 ## How to run the Code
 To run main.py that holds the entire Data Science Process Code, run the following in your terminal:
