@@ -34,6 +34,14 @@ Script used to compute performance : model_performance.py
 
 Considering the data is from census, it reflects on real people from the United States. Ethical implications could therefore apply - handle with care.
 
+Privacy: The use of this machine learning model can raise privacy concerns as it involves the collection of census data which in parts comprises of personal data. This data can be misused for malicious purposes. 
+
+Accountability: It can be difficult to determine who is responsible for the decisions made by a machine learning model and how these decisions can be challenged or corrected. This lack of accountability can make it difficult to ensure that the model is being used ethically - handle with care.
+
 ## Caveats and Recommendations
 
 This model and data were used for a project course from Udacity called "Machine Learning DevOps Engineer".
+
+Fairness: Since the data was taken from census at a certain point in time, there may be bias present now, since that data might now be entirely different, leading to bias in the model's predictions.
+
+It is recommended to use diverse up to date data to train the model and to mitigate possible biases.
