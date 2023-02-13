@@ -1,43 +1,43 @@
-Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
+# Udacity Machine Learning DevOps Engineer - Project 3
 
-# Environment Set up
-* Download and install conda if you don’t have it already.
-    * Use the supplied requirements file to create a new environment, or
-    * conda create -n [envname] "python=3.8" scikit-learn pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
-    * Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
+Predict Deploy a Machine Learning Pipeline with GitHub Actions and Render
+Powered by: Udacity
 
-## Repositories
-* Create a directory for the project and initialize git.
-    * As you work on the code, continually commit changes. Trained models you want to use in production must be committed to GitHub.
-* Connect your local git repo to GitHub.
-* Setup GitHub Actions on your repo. You can use one of the pre-made GitHub Actions if at a minimum it runs pytest and flake8 on push and requires both to pass without error.
-    * Make sure you set up the GitHub Action to have the same version of Python as you used in development.
+## Introduction
+The Goal of this project is to deploy a full ML Pipeline using GitHub Actions for CI and Render for CD. 
 
-# Data
-* Download census.csv and commit it to dvc.
-* This data is messy, try to open it in pandas and see what you get.
-* To clean it, use your favorite text editor to remove all spaces.
+The model itself uses census data to predict wether an individual earns more or less than 50K a year. For that, the model uses a RandomForestClassifier with the standard settings as hyperparameters.
 
-# Model
-* Using the starter code, write a machine learning model that trains on the clean data and saves the model. Complete any function that has been started.
-* Write unit tests for at least 3 functions in the model code.
-* Write a function that outputs the performance of the model on slices of the data.
-    * Suggestion: for simplicity, the function can just output the performance on slices of just the categorical features.
-* Write a model card using the provided template.
+## Installation
+This project runs on python version 3.8. Make sure you have the right Python version installed on your local machine.
 
-# API Creation
-*  Create a RESTful API using FastAPI this must implement:
-    * GET on the root giving a welcome message.
-    * POST that does model inference.
-    * Type hinting must be used.
-    * Use a Pydantic model to ingest the body from POST. This model should contain an example.
-   	 * Hint: the data has names with hyphens and Python does not allow those as variable names. Do not modify the column names in the csv and instead use the functionality of FastAPI/Pydantic/etc to deal with this.
-* Write 3 unit tests to test the API (one for the GET and two for POST, one that tests each prediction).
+Install the dependencies and libraries with the requirements.txt provided in this repository:
 
-# API Deployment
-* Create a free Heroku account (for the next steps you can either use the web GUI or download the Heroku CLI).
-* Create a new app and have it deployed from your GitHub repository.
-    * Enable automatic deployments that only deploy if your continuous integration passes.
-    * Hint: think about how paths will differ in your local environment vs. on Heroku.
-    * Hint: development in Python is fast! But how fast you can iterate slows down if you rely on your CI/CD to fail before fixing an issue. I like to run flake8 locally before I commit changes.
-* Write a script that uses the requests module to do one POST on your live API.
+pip install -r requirements.txt
+This project uses the following libraries:
+
+## How to run the Code
+To run main.py that holds the entire Data Science Process Code, run the following in your terminal:
+
+python main.py
+
+This will automatically run the entire code on your local machine.
+
+To deploy the code to Render, setup a Webservice on Render, connect your Repository with it and deploy the code using Render.
+
+## Testing
+Through GitHub Actions, there are automatic tests run with every push to your repository, when you activate GitHub Actions in your repository.
+
+Tests include testing the API deployment and the model performance.
+
+To run the tests locally, run:
+
+python test_api.py in the "starter/starter/" directory or python test_model.py in the "starter/starter/ml" directory.
+
+## Results
+The model returns a classification on wether an individual earns more or less than 50K a year.
+
+License
+MIT
+
+I want to give credit for the data and basic code provide by Udacity's Machine Learning DevOps Nanodegree program.
